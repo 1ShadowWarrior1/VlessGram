@@ -527,7 +527,6 @@ APP_PACKAGE=com.example.yourmessenger
 ### Обратная связь
 
 - **Баг-трекер:** https://github.com/1ShadowWarrior1/VlessGram/issues
-- **Электронная почта:** (опционально)
 - **Telegram:** @linux_ssh
 
 ### Как сообщить об ошибке
@@ -1073,7 +1072,6 @@ Full license text is available in the [LICENSE](LICENSE) file.
 ### Feedback
 
 - **Bug Tracker:** https://github.com/1ShadowWarrior1/VlessGram/issues
-- **Email:** (optional)
 - **Telegram:** @linux_ssh
 
 ### How to Report a Bug
