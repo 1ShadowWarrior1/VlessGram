@@ -1,4 +1,4 @@
-# 🌐 VlessGram — Telegram для Android с поддержкой VLESS/VPN
+# VlessGram — Telegram для Android с поддержкой VLESS/VPN
 
 <div align="center">
 
@@ -6,7 +6,7 @@
 [![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://www.android.com/)
 [![GitHub Release](https://img.shields.io/github/v/release/1ShadowWarrior1/VlessGram)](https://github.com/1ShadowWarrior1/VlessGram/releases)
 
-**VlessGram** — это форк Telegram для Android с интегрированной поддержкой протоколов **VLESS**, **Trojan** и **Shadowsocks**
+**VlessGram** — форк Telegram для Android со встроенной поддержкой протоколов **VLESS**, **Trojan** и **Shadowsocks**
 
 [English Version Below ⬇️](#-english-version)
 
@@ -16,30 +16,32 @@
 
 # 🇷🇺 Русская версия
 
-## 📖 О проекте
+## О проекте
 
-**VlessGram** — это модифицированная версия Telegram для Android с встроенной поддержкой прокси-протоколов. Приложение использует библиотеку `libvless` для создания локального SOCKS5-прокси, через который перенаправляется весь трафик Telegram.
+**VlessGram** — модифицированная версия Telegram для Android с встроенной поддержкой прокси-протоколов. Приложение использует библиотеку `libvless` для создания локального SOCKS5-прокси, через который проходит весь трафик Telegram.
 
 ---
 
-## ✨ Возможности
+## Возможности
 
-### 🔐 Интеграция VLESS/VPN
+### Поддерживаемые протоколы
+
+- **VLESS** — современный протокол обхода блокировок
+- **Trojan** — маскировка под обычный HTTPS-трафик
+- **Shadowsocks** — проверенный протокол проксирования
+
+### Ключевые функции
 
 | Функция | Описание |
 |---------|----------|
-| **Протоколы** | VLESS, Trojan, Shadowsocks |
-| **Локальный SOCKS5 прокси** | Весь трафик Telegram идёт через libvless |
-| **Без внешних приложений** | Встроенная VPN-функциональность |
+| Локальный SOCKS5 прокси | Весь трафик Telegram идёт через libvless |
+| Без внешних приложений | Встроенная VPN-функциональность |
+| Автопереключение | Переключение на лучший узел при потере соединения |
+| Ping-мониторинг | Проверка пинга всех узлов в реальном времени |
+| Поддержка подписок | Импорт подписок с узлами по URL |
+| Автозапуск | Автоматическое подключение при запуске приложения |
 
-### 🚀 Умные функции
-
-- **🔄 Автопереключение** — автоматически переключается на лучший узел при потере соединения
-- **📶 Ping-мониторинг** — проверка пинга всех узлов в реальном времени
-- **📥 Поддержка подписок** — импорт подписок с узлами по URL
-- **⚡ Автозапуск** — автоматическое подключение при запуске приложения
-
-### 📊 Управление узлами
+### Управление узлами
 
 - Ручное добавление узлов через URI
 - Импорт подписок (JSON, Base64, обычный текст)
@@ -49,18 +51,18 @@
 
 ---
 
-## 📚 Как пользоваться VLESS
+## Как пользоваться VLESS
 
-### Шаг 1: Добавить VLESS узел
+### Шаг 1: Добавить узел
 
-#### Вариант A: Добавить ключ вручную
+**Вариант A — Добавить ключ вручную:**
 
 1. Откройте **Настройки** → **Данные и память** → **Настройки прокси**
 2. Нажмите **➕ Добавить ключ**
 3. Вставьте ваш URI VLESS/Trojan/Shadowsocks
 4. Нажмите **Сохранить**
 
-#### Вариант B: Добавить подписку
+**Вариант B — Добавить подписку:**
 
 1. Откройте **Настройки** → **Данные и память** → **Настройки прокси**
 2. Нажмите **➕ Добавить подписку**
@@ -74,24 +76,91 @@
 
 | Настройка | Описание |
 |-----------|----------|
-| **⚡ Автовключение** | Автоматически подключаться к VLESS при запуске Telegram |
-| **🔄 Умное переключение** | Автопереключение на лучший узел при сбое соединения |
-| **📶 Сортировка по пингу** | Сортировать узлы по задержке (меньший первый) |
+| Автовключение | Автоматически подключаться к VLESS при запуске Telegram |
+| Умное переключение | Автопереключение на лучший узел при сбое соединения |
+| Сортировка по пингу | Сортировать узлы по задержке (меньший первый) |
 
 ---
 
-### ⚠️ Шаг 3: Предоставить разрешение на работу в фоне
+## ⚠️ Важно: Отключение ограничений работы в фоне
 
-> **Важно!** Для стабильной работы VLESS/VPN необходимо разрешить приложению работу в фоне:
+Android по умолчанию ограничивает работу приложений в фоне для экономии батареи. Это может приводить к отключению VLESS при сворачивании приложения или выключенном экране.
 
-1. При запросе нажмите **«Разрешить»** для предоставления разрешения на оптимизацию батареи
-2. Или перейдите: **Настройки** → **Приложения** → **VlessGram** → **Батарея** → **Не ограничивать**
+### Почему это важно
 
-> **Примечание:** Без этого разрешения VLESS может отключаться при сворачивании приложения или выключенном экране.
+Без proper настроек Android может:
+- Останавливать службу VLESS при сворачивании приложения
+- Отключать VPN при выключенном экране
+- Прерывать проверку пинга серверов в фоне
+
+### Как отключить ограничения (универсальный способ)
+
+**Способ 1 — Через настройки приложения:**
+
+1. Откройте **Настройки** телефона
+2. Перейдите в **Приложения** → **VlessGram**
+3. Нажмите **Батарея** или **Питание**
+4. Выберите **Не ограничивать** или **Без ограничений**
+
+**Способ 2 — При первом запуске:**
+
+1. При первом подключении VLESS приложение запросит разрешение
+2. Нажмите **Разрешить** в диалоге оптимизации батареи
+3. Это автоматически настроит нужные разрешения
+
+### Инструкции для популярных производителей
+
+#### Samsung
+
+```
+Настройки → Приложения → VlessGram → Батарея → Оптимизация батареи → 
+Все приложения (вверху) → Найти VlessGram → Отключить
+```
+
+#### Xiaomi / MIUI
+
+```
+Настройки → Приложения → VlessGram → Батарея → 
+Фоновая работа → Разрешить
+```
+
+Дополнительно в MIUI:
+```
+Безопасность → Разрешения → Автозапуск → Включить для VlessGram
+```
+
+#### Huawei / EMUI
+
+```
+Настройки → Батарея → Запуск приложений → 
+Найти VlessGram → Включить автозапуск и вторичный запуск
+```
+
+#### OnePlus / OxygenOS
+
+```
+Настройки → Приложения → VlessGram → 
+Расширенные настройки → Батарея → Разрешить фоновую активность
+```
+
+#### Pixel / Stock Android
+
+```
+Настройки → Приложения → VlessGram → Батарея → 
+Не ограничивать
+```
+
+### Проверка настроек
+
+После настройки:
+1. Подключите VLESS узел
+2. Сверните приложение
+3. Выключите экран на 1-2 минуты
+4. Включите экран и проверьте — соединение должно сохраниться
 
 ---
 
-### Шаг 4: Подключиться
+### Шаг 3: Подключиться
 
 1. Нажмите на любой узел в списке
 2. Дождитесь проверки пинга
@@ -100,17 +169,17 @@
 
 ---
 
-### Шаг 5: Мониторинг подключения
+### Шаг 4: Мониторинг подключения
 
 | Статус | Значение |
 |--------|----------|
-| **🟢 Зелёное значение пинга** | Узел работает |
-| **🔴 Красное "timeout"** | Узел недоступен |
-| **🔄 Автопереключение** | Активируется при сбое текущего узла |
+| Зелёное значение пинга | Узел работает |
+| Красное "timeout" | Узел недоступен |
+| Автопереключение | Активируется при сбое текущего узла |
 
 ---
 
-## 🔗 Поддерживаемые форматы URI
+## Поддерживаемые форматы URI
 
 ### VLESS
 ```
@@ -129,30 +198,30 @@ ss://base64(пароль:шифр)@хост:порт#ИмяУзла
 
 ---
 
-## 📋 Форматы подписок
+## Форматы подписок
 
 | Формат | Описание |
 |--------|----------|
-| **JSON** | Массив URI или объектов с полем `uri` |
-| **Base64** | Base64-кодированный список URI (по одному на строку) |
-| **Обычный текст** | Текстовый список URI (по одному на строку) |
+| JSON | Массив URI или объектов с полем `uri` |
+| Base64 | Base64-кодированный список URI (по одному на строку) |
+| Обычный текст | Текстовый список URI (по одному на строку) |
 
 ---
 
-## 🏗️ Архитектура
+## Архитектура
 
 | Компонент | Описание |
 |-----------|----------|
-| **VlessConfigParser** | Парсит URI VLESS/Trojan/Shadowsocks в JSON-конфигурацию |
-| **VlessCoreBridge** | JNI-мост для libvless (запуск/остановка) |
-| **VlessCoreManager** | Управление извлечением и запуском libvless.so |
-| **VlessRepository** | Хранение узлов, подписки, ping-мониторинг, автопереключение |
-| **VlessSubscriptionParser** | Парсинг данных подписок (JSON/Base64/текст) |
-| **VlessUriUtils** | Утилиты URI для извлечения хост:порт |
+| VlessConfigParser | Парсит URI VLESS/Trojan/Shadowsocks в JSON-конфигурацию |
+| VlessCoreBridge | JNI-мост для libvless (запуск/остановка) |
+| VlessCoreManager | Управление извлечением и запуском libvless.so |
+| VlessRepository | Хранение узлов, подписки, ping-мониторинг, автопереключение |
+| VlessSubscriptionParser | Парсинг данных подписок (JSON/Base64/текст) |
+| VlessUriUtils | Утилиты URI для извлечения хост:порт |
 
 ---
 
-## 🛠️ Руководство по сборке
+## Руководство по сборке
 
 ### Требования
 
@@ -195,7 +264,7 @@ ss://base64(пароль:шифр)@хост:порт#ИмяУзла
 
 ---
 
-## 📚 Документация
+## Документация
 
 | Ресурс | Ссылка |
 |--------|--------|
@@ -204,7 +273,7 @@ ss://base64(пароль:шифр)@хост:порт#ИмяУзла
 
 ---
 
-## ⚖️ Лицензия
+## Лицензия
 
 Данный проект лицензирован под **GNU General Public License v2.0** или более поздней версией.
 
@@ -212,13 +281,13 @@ ss://base64(пароль:шифр)@хост:порт#ИмяУзла
 
 ---
 
-## ⚠️ Отказ от ответственности
+## Отказ от ответственности
 
-VlessGram — это неофициальный клиент Telegram. Это приложение не связано с Telegram FZ-LLC. Функционал VLESS предоставляется только в образовательных целях. Пользователи несут ответственность за соблюдение местных законов и нормативных актов.
+VlessGram — неофициальный клиент Telegram. Это приложение не связано с Telegram FZ-LLC. Функционал VLESS предоставляется только в образовательных целях. Пользователи несут ответственность за соблюдение местных законов и нормативных актов.
 
 ---
 
-## 📞 Поддержка
+## Поддержка
 
 - **Issues:** https://github.com/1ShadowWarrior1/VlessGram/issues
 - **Telegram:** @linux_ssh
@@ -227,7 +296,7 @@ VlessGram — это неофициальный клиент Telegram. Это п
 
 <div align="center">
 
-**Сделано с ❤️ для конфиденциальности и свободы**
+**Сделано для конфиденциальности и свободы**
 
 </div>
 
@@ -237,30 +306,32 @@ VlessGram — это неофициальный клиент Telegram. Это п
 
 # 🇬🇧 English Version
 
-## 📖 About
+## About
 
 **VlessGram** is a modified fork of Telegram for Android with built-in support for proxy protocols. The app uses `libvless` library to create a local SOCKS5 proxy through which all Telegram traffic is routed.
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔐 VLESS/VPN Integration
+### Supported Protocols
+
+- **VLESS** — Modern bypass protocol
+- **Trojan** — Disguised as regular HTTPS traffic
+- **Shadowsocks** — Proven proxy protocol
+
+### Key Features
 
 | Feature | Description |
 |---------|-------------|
-| **Protocols** | VLESS, Trojan, Shadowsocks |
-| **Local SOCKS5 Proxy** | All Telegram traffic goes through libvless |
-| **No External Apps** | Built-in VPN functionality |
+| Local SOCKS5 Proxy | All Telegram traffic goes through libvless |
+| No External Apps | Built-in VPN functionality |
+| Auto-Switch | Switches to best node when connection is lost |
+| Ping Monitoring | Real-time ping checks for all nodes |
+| Subscription Support | Import node subscriptions via URL |
+| Auto-Start | Automatically connect on app launch |
 
-### 🚀 Smart Features
-
-- **🔄 Auto-Switch** — automatically switches to the best available node when connection is lost
-- **📶 Ping Monitoring** — real-time ping checks for all nodes
-- **📥 Subscription Support** — import node subscriptions via URL
-- **⚡ Auto-Start** — automatically connect on app launch
-
-### 📊 Node Management
+### Node Management
 
 - Manual node addition via URI
 - Subscription import (JSON, Base64, Plain Text)
@@ -270,18 +341,18 @@ VlessGram — это неофициальный клиент Telegram. Это п
 
 ---
 
-## 📚 How to Use VLESS
+## How to Use VLESS
 
-### Step 1: Add a VLESS Node
+### Step 1: Add a Node
 
-#### Option A: Add Manual Key
+**Option A — Add Manual Key:**
 
 1. Open **Settings** → **Data and Storage** → **Proxy Settings**
 2. Tap **➕ Add Key**
 3. Paste your VLESS/Trojan/Shadowsocks URI
 4. Tap **Save**
 
-#### Option B: Add Subscription
+**Option B — Add Subscription:**
 
 1. Open **Settings** → **Data and Storage** → **Proxy Settings**
 2. Tap **➕ Add Subscription**
@@ -295,24 +366,91 @@ VlessGram — это неофициальный клиент Telegram. Это п
 
 | Setting | Description |
 |---------|-------------|
-| **⚡ Auto-Start** | Automatically connect to VLESS when Telegram starts |
-| **🔄 Smart Switch** | Auto-switch to best node when connection fails |
-| **📶 Sort by Ping** | Sort nodes by latency (lowest first) |
+| Auto-Start | Automatically connect to VLESS when Telegram starts |
+| Smart Switch | Auto-switch to best node when connection fails |
+| Sort by Ping | Sort nodes by latency (lowest first) |
 
 ---
 
-### ⚠️ Step 3: Grant Background Permission (Important!)
+## ⚠️ Important: Disable Background Restrictions
 
-> **Important!** For stable VLESS/VPN connection, you need to allow the app to work in background:
+Android limits background app activity by default to save battery. This can cause VLESS to disconnect when minimizing the app or when the screen is off.
 
-1. When prompted, tap **"Allow"** to grant battery optimization permission
-2. Or go to: **Settings** → **Apps** → **VlessGram** → **Battery** → **Unrestricted**
+### Why This Matters
 
-> **Note:** Without this permission, VLESS may disconnect when the app is minimized or screen is off.
+Without proper settings, Android may:
+- Stop VLESS service when app is minimized
+- Disconnect VPN when screen is off
+- Interrupt background server ping checks
+
+### How to Disable Restrictions (Universal Method)
+
+**Method 1 — Through App Settings:**
+
+1. Open phone **Settings**
+2. Go to **Apps** → **VlessGram**
+3. Tap **Battery** or **Power**
+4. Select **Unrestricted** or **Unlimited**
+
+**Method 2 — On First Launch:**
+
+1. On first VLESS connection, the app will request permission
+2. Tap **Allow** in the battery optimization dialog
+3. This automatically configures required permissions
+
+### Instructions for Popular Manufacturers
+
+#### Samsung
+
+```
+Settings → Apps → VlessGram → Battery → Optimize battery usage → 
+All apps (top) → Find VlessGram → Turn off
+```
+
+#### Xiaomi / MIUI
+
+```
+Settings → Apps → VlessGram → Battery → 
+Background activity → Allow
+```
+
+Additionally in MIUI:
+```
+Security → Permissions → Autostart → Enable for VlessGram
+```
+
+#### Huawei / EMUI
+
+```
+Settings → Battery → App launch → 
+Find VlessGram → Enable auto-launch and secondary launch
+```
+
+#### OnePlus / OxygenOS
+
+```
+Settings → Apps → VlessGram → 
+Advanced → Battery → Allow background activity
+```
+
+#### Pixel / Stock Android
+
+```
+Settings → Apps → VlessGram → Battery → 
+Unrestricted
+```
+
+### Verify Settings
+
+After configuration:
+1. Connect a VLESS node
+2. Minimize the app
+3. Turn off screen for 1-2 minutes
+4. Turn on screen and check — connection should persist
 
 ---
 
-### Step 4: Connect
+### Step 3: Connect
 
 1. Tap on any node in the list
 2. Wait for ping check to complete
@@ -321,17 +459,17 @@ VlessGram — это неофициальный клиент Telegram. Это п
 
 ---
 
-### Step 5: Monitor Connection
+### Step 4: Monitor Connection
 
 | Status | Meaning |
 |--------|---------|
-| **🟢 Green ping value** | Node is working |
-| **🔴 Red "timeout"** | Node is unavailable |
-| **🔄 Auto-Switch** | Will activate if current node fails |
+| Green ping value | Node is working |
+| Red "timeout" | Node is unavailable |
+| Auto-Switch | Will activate if current node fails |
 
 ---
 
-## 🔗 Supported URI Formats
+## Supported URI Formats
 
 ### VLESS
 ```
@@ -350,30 +488,30 @@ ss://base64(password:cipher)@host:port#NodeName
 
 ---
 
-## 📋 Subscription Formats
+## Subscription Formats
 
 | Format | Description |
 |--------|-------------|
-| **JSON** | Array of URIs or objects with `uri` field |
-| **Base64** | Base64-encoded list of URIs (one per line) |
-| **Plain Text** | Plain text list of URIs (one per line) |
+| JSON | Array of URIs or objects with `uri` field |
+| Base64 | Base64-encoded list of URIs (one per line) |
+| Plain Text | Plain text list of URIs (one per line) |
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 | Component | Description |
 |-----------|-------------|
-| **VlessConfigParser** | Parses VLESS/Trojan/Shadowsocks URIs to JSON config |
-| **VlessCoreBridge** | JNI bridge for libvless (Start/Stop) |
-| **VlessCoreManager** | Manages libvless.so extraction and startup |
-| **VlessRepository** | Node storage, subscriptions, ping monitoring, auto-switch |
-| **VlessSubscriptionParser** | Parses subscription data (JSON/Base64/Plain) |
-| **VlessUriUtils** | URI utilities for host:port extraction |
+| VlessConfigParser | Parses VLESS/Trojan/Shadowsocks URIs to JSON config |
+| VlessCoreBridge | JNI bridge for libvless (Start/Stop) |
+| VlessCoreManager | Manages libvless.so extraction and startup |
+| VlessRepository | Node storage, subscriptions, ping monitoring, auto-switch |
+| VlessSubscriptionParser | Parses subscription data (JSON/Base64/Plain) |
+| VlessUriUtils | URI utilities for host:port extraction |
 
 ---
 
-## 🛠️ Compilation Guide
+## Compilation Guide
 
 ### Requirements
 
@@ -416,7 +554,7 @@ ss://base64(password:cipher)@host:port#NodeName
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 | Resource | Link |
 |----------|------|
@@ -425,7 +563,7 @@ ss://base64(password:cipher)@host:port#NodeName
 
 ---
 
-## ⚖️ License
+## License
 
 This project is licensed under the **GNU General Public License v2.0** or later.
 
@@ -433,13 +571,13 @@ See [LICENSE](LICENSE) for details.
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 VlessGram is an unofficial Telegram client. This application is not affiliated with Telegram FZ-LLC. VLESS functionality is provided for educational purposes only. Users are responsible for compliance with local laws and regulations.
 
 ---
 
-## 📞 Support
+## Support
 
 - **Issues:** https://github.com/1ShadowWarrior1/VlessGram/issues
 - **Telegram:** @linux_ssh
@@ -448,6 +586,6 @@ VlessGram is an unofficial Telegram client. This application is not affiliated w
 
 <div align="center">
 
-**Built with ❤️ for privacy and freedom**
+**Built for privacy and freedom**
 
 </div>
